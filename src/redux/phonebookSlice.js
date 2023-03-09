@@ -35,7 +35,7 @@ const phonebookSlice = createSlice({
         [addContact.fulfilled](state, action) {
             return {
                 ...state,
-                items: [...state.items, ...action.payload],
+                items: [...state.items, action.payload],
                 isLoading: false,
                 error: null,
             }

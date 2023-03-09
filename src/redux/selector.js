@@ -1,14 +1,14 @@
 import { createSelector } from "@reduxjs/toolkit";
 
-const selectContacts = state => state.contacts.items;
+export const selectContacts = state => state.contacts.items;
 
-const selectIsLoading = state => state.contacts.isLoading;
+export const selectIsLoading = state => state.contacts.isLoading;
 
-const selectError = state => state.contacts.error;
+export const selectError = state => state.contacts.error;
 
-const selectFilter = state => state.filter;
+export const selectFilter = state => state.filter;
 
-const selectFilteredContacts = createSelector(
+export const selectFilteredContacts = createSelector(
     [selectContacts, selectFilter],
     (contacts, filter) => {
         return contacts.filter(({ name }) =>
@@ -16,11 +16,3 @@ const selectFilteredContacts = createSelector(
         );
     }
 );
-
-export {
-    selectContacts,
-    selectIsLoading,
-    selectError,
-    selectFilter,
-    selectFilteredContacts,
-}
