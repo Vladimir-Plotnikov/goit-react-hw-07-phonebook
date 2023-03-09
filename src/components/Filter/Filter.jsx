@@ -2,15 +2,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { setFilter } from "redux/filterSlice";
 import { selectFilter } from "redux/selector";
     
-export const Filter = () => {
+export function Filter(){
 
     const filter = useSelector(selectFilter);
     const dispatch = useDispatch();
     
 
     const handleChange = e => {
-        const { value } = e.currentTarget;
-        dispatch(setFilter(value))
+        const { value } = e.target;
+        dispatch(setFilter(value));
     }
 
 
@@ -18,12 +18,12 @@ export const Filter = () => {
         <div className='FindContact'>
         <h3>Find contact by name</h3>
             <input 
+                type="text"
                 name="filter"
                 className='SortInput'
-                type="text"
                 value={filter}
                 onChange={handleChange}
-                placeholder=''
+                placeholder='search'
             />
         </div>
     );
